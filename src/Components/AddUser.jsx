@@ -3,10 +3,10 @@ import Form from "./Form";
 import Card from "./Card";
 import UserList from "./UserList";
 
-const AddUser = () => {
+const AddUser = ({ onAddUser }) => {
   return (
     <Card>
-      <Form />
+      <Form onAddFormUser={onAddUser} />
     </Card>
   );
 };

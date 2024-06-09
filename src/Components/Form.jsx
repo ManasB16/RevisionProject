@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import Button from "./Button";
 
-const Form = () => {
+const Form = ({ onAddFormUser }) => {
   const userName = useRef("");
   const age = useRef("");
 
@@ -17,7 +17,7 @@ const Form = () => {
       // console.log("error");
       return;
     } else {
-      console.log(userNameVal, ageVal);
+      onAddFormUser(userNameVal, ageVal);
     }
 
     userName.current.value = "";
