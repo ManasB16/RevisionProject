@@ -12,9 +12,10 @@ const Form = () => {
     if (
       userNameVal.trim().length == 0 ||
       ageVal.trim().length == 0 ||
-      ageVal < 1
+      +ageVal < 1
     ) {
-      console.log("error");
+      // console.log("error");
+      return;
     } else {
       console.log(userNameVal, ageVal);
     }
