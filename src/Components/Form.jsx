@@ -9,7 +9,16 @@ const Form = () => {
     event.preventDefault();
     const userNameVal = userName.current.value;
     const ageVal = age.current.value;
-    console.log(userNameVal, ageVal);
+    if (
+      userNameVal.trim().length == 0 ||
+      ageVal.trim().length == 0 ||
+      ageVal < 1
+    ) {
+      console.log("error");
+    } else {
+      console.log(userNameVal, ageVal);
+    }
+
     userName.current.value = "";
     age.current.value = "";
   };
