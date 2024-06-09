@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import Button from "./Button";
 
-const Form = ({ addUserHandler }) => {
+const Form = () => {
+  const userName = useRef("");
+  const age = useRef("");
+
+  const addUserHandler = (event) => {
+    event.preventDefault();
+    const userNameVal = userName.current.value;
+    const ageVal = age.current.value;
+    console.log(userNameVal, ageVal);
+    userName.current.value = "";
+    age.current.value = "";
+  };
+
   return (
     <div className="flex justify-center">
       <form className="w-96 h-80 rounded-xl mx-80" onSubmit={addUserHandler}>
@@ -16,6 +28,7 @@ const Form = ({ addUserHandler }) => {
               placeholder="Jane Doe"
               aria-label="Full name"
               id="username"
+              ref={userName}
             />
           </div>
           <div className="flex gap-8">
@@ -28,6 +41,7 @@ const Form = ({ addUserHandler }) => {
               placeholder="18"
               aria-label="Full name"
               id="age"
+              ref={age}
             />
           </div>
           <Button type="submit">Add User</Button>
