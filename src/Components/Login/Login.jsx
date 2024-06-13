@@ -1,6 +1,12 @@
 // Write your code at relevant places in the code below:
 
-import React, { useState, useReducer, useEffect, useContext } from "react";
+import React, {
+  useState,
+  useReducer,
+  useEffect,
+  useContext,
+  useRef,
+} from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
@@ -44,6 +50,11 @@ const Login = () => {
   let { isValid: passwordIsValid } = passwordState;
 
   const authCtx = useContext(AuthContext);
+  const emailRef = useRef(null);
+
+  useEffect(() => {
+    emailRef.current.focus();
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -92,6 +103,7 @@ const Login = () => {
         >
           <label htmlFor="email">E-Mail</label>
           <input
+            ref={emailRef}
             type="email"
             id="email"
             value={emailState.value}
